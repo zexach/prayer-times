@@ -1,0 +1,14 @@
+.prayer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.prayer-name{
+    font-size: 20px;
+}
+
+.prayer-time{
+    font-weight: 600;
+}
