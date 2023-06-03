@@ -1,0 +1,46 @@
+.locations-modal{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    background: rgba(255, 255, 255, 0.39);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.locations{
+    padding: 0 15rem 0 15rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.each-city{
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.each-city:hover{
+    scale: 1.2;
+}
+
+.close-btn{
+    color: #fff;
+    background-color: #213547;
+    transition: 0.3s;
+}
+
+.close-btn:hover{
+    scale: 1.14;
+}

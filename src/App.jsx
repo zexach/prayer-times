@@ -1,23 +1,40 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 import './App.css'
 import Title from './components/Title'
 import Location from './components/Location'
 import Prayer from './components/Prayer'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+    const [locations, setLocations] = useState([]);
+
+    const getLocations = async() => {
+        try{
+            const response = await axios.get(`https://api.vaktija.ba/vaktija/v1/lokacije`);
+            setLocations(response.data);
+        }
+        catch(e){
+            console.log(e);
+        }
+    }
+
+    useEffect(() =>  {
+        getLocations();
+    }, []);
+
 
   return (
     <>
       <Title />
-      <Location />
+      <Location city="Zavidovići" locations={locations} />
       <div className="prayers">
-        <Prayer prayerName="Dawn" />
-        <Prayer prayerName="Sunrise" />
-        <Prayer prayerName="Zuhr" />
-        <Prayer prayerName="'Asr" />
-        <Prayer prayerName="Maghrib" />
-        <Prayer prayerName="Isha" />
+        <Prayer prayerName="Zora" />
+        <Prayer prayerName="Izlazak sunca" />
+        <Prayer prayerName="Podne" />
+        <Prayer prayerName="Ikindija" />
+        <Prayer prayerName="Akšam" />
+        <Prayer prayerName="Jacija" />
       </div>
     </>
   )
