@@ -1,6 +1,6 @@
 #root {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -18,4 +18,11 @@
   display: flex;
   flex-direction: row;
   gap: 5rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .prayers{
+    flex-direction: column;
+    margin-bottom: 3rem;
+  }
 }

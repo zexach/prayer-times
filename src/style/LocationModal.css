@@ -1,5 +1,5 @@
 .locations-modal{
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,3 +44,10 @@
 .close-btn:hover{
     scale: 1.14;
 }
+
+@media screen and (max-width: 1200px) {
+    .locations-modal{
+        padding: 3rem;
+        gap: 2rem;
+    }
+  }
