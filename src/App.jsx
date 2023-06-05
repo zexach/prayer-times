@@ -55,9 +55,7 @@ function App() {
     useEffect(() =>  {
         getPrayerTimesForLocation(77);
         getLocations();
-
     }, []);
-
 
     const handleLocationClick = () => {
         setIsOpen(!isOpen);
