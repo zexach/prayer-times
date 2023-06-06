@@ -8,7 +8,7 @@ import Date from './components/Date'
 import LocationModal from "./components/LocationModal";
 
 
-function App() {
+const App = () => {
   
     const baseURL = 'https://api.vaktija.ba/vaktija/v1';
     const [locations, setLocations] = useState([]);
@@ -28,6 +28,7 @@ function App() {
         ""
         ]
     });
+    const [prayers, setPrayers] = useState(['Zora', 'Izlazak sunca', 'Podne', 'Ikindija', 'Akšam', 'Jacija']);
     const [isOpen, setIsOpen] = useState(false);
 
     const getLocations = async() => {
@@ -70,12 +71,7 @@ function App() {
       </div>
       <Date localDate={location.datum[0]} arabicDate={location.datum[1]} />
       <div className="prayers">
-        <Prayer prayerName="Zora" prayerTime={location.vakat[0]} />
-        <Prayer prayerName="Izlazak sunca" prayerTime={location.vakat[1]} />
-        <Prayer prayerName="Podne" prayerTime={location.vakat[2]} />
-        <Prayer prayerName="Ikindija" prayerTime={location.vakat[3]} />
-        <Prayer prayerName="Akšam" prayerTime={location.vakat[4]} />
-        <Prayer prayerName="Jacija" prayerTime={location.vakat[5]} />
+        {prayers.map((prayer, index) => <Prayer key={index} prayerName={prayer} prayerTime={location.vakat[index]} /> )}
       </div>
       {isOpen ? <LocationModal locationList={locations} getData={getPrayerTimesForLocation} changeState={handleLocationClick} getLocation={getPrayerTimesForLocation} /> : ''}
     </>
